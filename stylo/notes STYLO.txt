@@ -1,0 +1,157 @@
+STYLO (esta hecho para comparar)
+
+
+
+
+Comparar textos de los chatbot con humans, textos de periodistas latam con españolas, textos de los chatbot con latam, textos de chatbot con españoles
+o What is the relationship between writing style and authorship?
+o What is the relationship between writing style and human/chatbot author?
+o What is the relationship between writing style and genre?
+o What is the relationship between writing style and year of publication?
+o Which words are characteristic of human authors compared to chatbot authors?
+o Which words are characteristic of specific characters or character categories?
+o Which words are characteristic for specific genres? (e.g. tragedies versus
+comedies)
+----------------------------------------------------------------------------------------
+Descrpción de las estadisticas:
+Statistics
+- Cluster analysis---> divide los archivos según las relaciones que encuentre entre ellos. 
+- MDS ----> es como se distribuye en un espacio de analisis los archivos. Situa los textos entorno a un eje cartesiano de cordenadas y los acerca o los aleja deacuerdo a su semejanza.
+- PCA ----> nos permite comparar los archivos, más que las palabras
+- Consensus Tree----> es la que más se utiliza (aquí si toma valor la diferencia en el mfw, donde el minimo y el máximo son diferentes). Este hace una media de los valores, una especie de consenso, en una especie de arbol. La fuerza del consenso (qué grado de similitud debe haber entre dos medidas, para considerarlos semejantes) 0.5 (50%) se considera que ya pertene a la misma rama.
+Delta Distance
+- Classic delta (es la preferente) es una medida normalizada que tiene en cuenta el total de palabras en el corpus
+- Eder's Delta cuando se tiene muchos archib¡vos de un autor con respecto a otro
+----------------------------------------------------------------------------------------
+The analysis started by inputting the plain text and choosing the Spanish language from the Stylo parameters.
+_______________________________
+
+LATAM- SPAIN - CHATBOT
+setwd('C:/Users/pilyu/Desktop/Master en Digital Humanities 2022-2023/THESIS 2023/fashion_journalism_ai_chatbots/stylo/spain_latam_chatbot/')
+
+PRUEBAS : 
+Prueba 1: MFW 500 min 500 max delete pronouns, Culling 50 min y max, MDS, classic delta, no sampling 
+- The parameter for the Most Frequent Words (MFW) was set to 100 MFW (min=max=100)
+- The culling parameter was set to min=max=0
+- Pronouns were excluded
+STATISTICS
+- Multidimensional Scaling (MDS) 
+- Classic Delta
+SAMPLING
+- No sampling was performed
+
+Prueba 2: MFW 500 min 500 max delete pronouns, Culling 50 min y max, MDS, classic delta, no sampling
+- The parameter for the Most Frequent Words (MFW) was set to 500 MFW (min=max=500)
+- The culling parameter was set to min=max=20 meaning that a given word has to appear in at least 20% texts (los textos que no llegan a un 20% en común, se eliminan del análisis)
+- Pronouns were excluded
+STATISTICS
+- Multidimensional Scaling (MDS) 
+- Eder's Delta
+SAMPLING
+- No sampling was performed
+
+3.  The analysis started by inputting the plain text and choosing the Spanish language from the Stylo parameters.
+FEATURES 
+- The parameter for the Most Frequent Words (MFW) was set to 500 MFW (min=max=500)
+- The culling parameter was set to min=max=0
+- Pronouns were excluded
+STATISTICS
+- Multidimensional Scaling (MDS) 
+- Eder's Delta
+SAMPLING
+- No sampling was performed
+
+4.  The analysis started by inputting the plain text and choosing the Spanish language from the Stylo parameters.
+FEATURES 
+- The parameter for the Most Frequent Words (MFW) was set to min= 100 max=500
+- The culling parameter was set to min=20 max=50
+- Pronouns were excluded
+STATISTICS
+- Multidimensional Scaling (MDS) 
+- Eder's Delta
+SAMPLING
+- No sampling was performed
+
+5.  The analysis started by inputting the plain text and choosing the Spanish language from the Stylo parameters.
+FEATURES 
+- The parameter for the Most Frequent Words (MFW) was set to min=100 max=500
+- The culling parameter was set to min=max=0
+- Pronouns were excluded
+STATISTICS
+- Consensus tree (0.5)
+- Classic Delta
+SAMPLING
+- No sampling was performed
+
+6.  The analysis started by inputting the plain text and choosing the Spanish language from the Stylo parameters.
+FEATURES 
+- The parameter for the Most Frequent Words (MFW) was set to min=100 max=1000
+- The culling parameter was set to min= 20 max=50
+- Pronouns were excluded
+STATISTICS
+- Cluster analysis
+- Classic Delta
+SAMPLING
+- No sampling was performed
+
+total: 11 pruebas con los 3 corpus
+_____
+VALID
+_____
+
+Prueba 1: spain_latam_chatbot_PCA_91_MFWs_Culled_20_Pronouns deleted_PCA_Started at 50_001
+
+Prueba 2: MFW 100 min 500 max delete pronouns, Culling 10 min y 50 max, MDS, Eders delta, no sampling
+spain_latam_chatbot_MDS_300_MFWs_Culled_10-50_Pronouns deleted___001 ---> gephi
+
+Prueba 3: MFW 500 min 500 max, start 50, delete pronouns, Culling 20 min y max, Cluster analysis, Classic delta, no sampling (puede ir para gephi)
+
+Prueba 4: MFW 500 min 500 max delete pronouns, start 100, Culling 20 min y 50 max, MDS, Eders delta, no sampling (this is particular, more close to the human articles)
+
+------------------------------------------------------------------------------------------------
+
+HUMAN - CHATBOT
+setwd('C:/Users/pilyu/Desktop/Master en Digital Humanities 2022-2023/THESIS 2023/fashion_journalism_ai_chatbots/stylo/human_chatbot')
+
+Prueba 1: MFW 500 min 500 max delete pronouns, Culling 50 min y max, MDS, classic delta, no sampling
+
+Prueba 2: MFW 100 min 500 max delete pronouns, Culling 50 min y max, MDS, Eders delta, no sampling
+
+Prueba 3: MFW 100 min 400 max delete pronouns, start 50, Culling 0 min y max, Consensus Tree 0.9, Eders delta, no sampling
+
+Prueba 4: MFW 500 min 500 max, start 50, delete pronouns, Culling 20 min y max, Cluster analysis, Eders delta, no sampling (interesante: cuando se eliminan las primeras 50 palabras y el culling value se coloca en 20 (indicates that words that appear in at least 20% of the texts in the corpus considered in the analysis) los textos de los chatbot comienzan a mezclarse más con los textos producidos por humanos) ---> gephi
+
+Prueba 5: MFW 500 min 500 max, delete pronouns, Culling 20 min y max, MDS, Eders delta, no sampling ---> gephi
+
+-------------------------------------------------------------------------------------------
+
+CHATBOT SOURCE
+
+Prueba 1: MFW 500 min 500 max  delete pronouns, Culling 50 min y max, MDS, classic delta, no sampling
+
+Prueba 2: MFW 500 min 500 max  delete pronouns, Culling 20 min y max, MDS, eders delta, no sampling (esta para gephi)
+
+Prueba 3: MFW 100 min 400 max  delete pronouns, Culling 0 min y max, Consensus Tree 0.9, classic delta, no sampling
+
+Prueba 4: MFW 500 min 500 max  delete pronouns, Culling 20 min y max, Cluster analysis, Eders delta, no sampling
+
+-------------------------------------------------------------------------------------------
+
+HUMAN SOURCE
+
+Prueba 1: MFW 500 min 500 max, delete pronouns, Culling 50 min y max, MDS, classic delta, no sampling (se destaca más la diferencia de Vogue ES del resto)---> gephi
+
+Prueba 2: MFW 500 min 500 max, start at 50, delete pronouns, Culling 20 min y max, MDS, Eders delta, no sampling
+
+Prueba 3: MFW 100 min 400 max  delete pronouns, Culling 10 min y 40 max, Consensus Tree 0.9, classic delta, no sampling
+
+Prueba 4: MFW 500 min 500 max delete pronouns, Culling 20 min y max, Cluster analysis, Eders delta, no sampling
+
+Prueba 5: MFW 500 min 500 max delete pronouns, Culling 20 min y max, MDS, Eders delta, no sampling ---> gephi
+
+-------------------------------------------------------------------------------------------
+
+SOURCES BY COUNTRY
+
+Prueba 1: sources_by_country_MDS_158_MFWs_Culled_20_Pronouns deleted
+Prueba 2: sources_by_country_CA_100_MFWs_Culled_20_Pronouns deleted_Classic Delta
